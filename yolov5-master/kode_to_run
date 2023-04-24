@@ -1,0 +1,7 @@
+python train.py --data norway.yaml --epochs 20 --weights runs/train/exp12/weights/best.pt --cfg yolov5s.yaml  --batch-size 64 --device 0 --img 640 --cache ram --hyp runs/evolve/exp3/hyp_evolve.yaml --evolve --freeze 10
+python train.py --data norway.yaml --epochs 100 --weights runs/train/exp12/weights/best.pt --cfg yolov5s.yaml  --batch-size -1 --device 0 --img 640 --cache ram --hyp runs/evolve/exp7/hyp_evolve.yaml --freeze 10
+
+python detect.py --data norway.yaml --weights runs/train/exp12/weights/best.pt --img 640 --device 0
+python val.py --data norway.yaml --weights runs/train/exp12/weights/best.pt --img 640 --device 0
+
+python train.py --data all.yaml --epochs 200 --cfg yolov5s.yaml  --batch-size -1 --device 0 --img 640 --cache ram
